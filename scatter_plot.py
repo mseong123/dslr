@@ -1,14 +1,13 @@
 '''
 Program to create scatterplot to show which Hogwarts feature are similar. 
 '''
-
+import os
 import matplotlib.pyplot as plt
 import pandas as pd
-import os
-import numpy as np
 
 def parse_scatterplot_data(features:str, df:pd.DataFrame) -> list[list[pd.Series]]:
-    '''return a list of dataframe pair feature data that can be used in scatterplot. ie 14 features, shape (14,[pd.Series] )'''
+    '''return a list of dataframe pair feature data that can be used in scatterplot.
+      ie 14 features, shape (14,[pd.Series] )'''
     result:list[list[pd.Series]] = []
     for idx, _ in enumerate(features):
         inner_result:list[pd.Series] = []
@@ -25,11 +24,10 @@ def plot_scatterplot(data:list[list[pd.Series]]) -> None:
         os.mkdir("scatterplot/")
     except FileExistsError:
         pass
-    for idx, scatterplot in enumerate(data):
-        fig, ax = plt.subplots(3,5,layout='constrained', figsize=figure_size) 
+    for _, scatterplot in enumerate(data):
+        fig, ax = plt.subplots(3,5,layout='constrained', figsize=figure_size)
         ax = ax.flatten()
         for i in range(1, len(scatterplot)):
-            color = np.random.normal(15, 80, 2)
             ax[i - 1].scatter(scatterplot[0], scatterplot[i])
             ax[i - 1].set_xlabel(scatterplot[0].name)
             ax[i - 1].set_ylabel(scatterplot[i].name)
@@ -52,7 +50,7 @@ def main() -> None:
     feature_to_filter:list[str] = ["Index", "Hogwarts House", "First Name", "Last Name", "Birthday"]
     features:list[str] = filter_features(df, feature_to_filter)
     scatterplot_data:list[list[pd.Series]] = parse_scatterplot_data(features, df)
-    plot_scatterplot(scatterplot_data) 
+    plot_scatterplot(scatterplot_data)
 
 if __name__ == "__main__":
-    main() 
+    main()
