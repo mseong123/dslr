@@ -1,5 +1,8 @@
+'''
+Program to create histogram to show which Hogwarts feature has a homogeneous score 
+distribution between all four houses.
+'''
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 
 def parse_feature(feature:str, df:pd.DataFrame, houses:list[str]) -> list:
@@ -17,8 +20,10 @@ def filter_features(df) -> list[str]:
             return True
     return list(filter(filter_feature, result))
 
-def plot_histogram(data:list, houses:list[str], feature:str, ax, color:list[str], feature_idx:int) -> None:
+def plot_histogram(data:list, houses:list[str], feature:str, \
+                   ax, feature_idx:int) -> None:
     '''render subplots of histogram based on data'''
+    color:list[str] = ["red", "green","yellow", "blue"]
     for idx, house in enumerate(houses):
         if feature == "Birthday":
             date_series = pd.Series(data[idx])
@@ -35,15 +40,14 @@ def main() -> None:
     plt.close("all")
     df = pd.read_csv("./datasets/dataset_train.csv")
     houses:list[str] = ["Ravenclaw", "Slytherin","Hufflepuff", "Gryffindor"]
-    color:list[str] = ["red", "green","yellow", "blue"]
     features:list[str] = filter_features(df)
     figure_size:tuple[int] = (14,10)
 
-    fig, ax = plt.subplots(3,5,layout='constrained', figsize=figure_size)
+    _, ax = plt.subplots(3,5,layout='constrained', figsize=figure_size)
     ax = ax.flatten()
     for idx, feature in enumerate(features):
         data:list = parse_feature(feature, df, houses)
-        plot_histogram(data,houses,feature, ax, color, idx)
+        plot_histogram(data,houses,feature, ax, idx)
     plt.legend()
     plt.show()
 
