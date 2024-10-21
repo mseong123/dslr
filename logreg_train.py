@@ -27,8 +27,11 @@ def main()-> None:
     # 1) Defense Against the Dark Arts (since it is correlated with Astronomy)
     # 2) Birthday, Best Hand, Arithmancy, Care of Magical Creatures since they have homogenous score distribution between the 4 houses
     # model = LogisticRegression()
-    features_to_drop:list[str] = ["Index", "First Name", "Last Name", "Birthday", "Best Hand", "Arithmancy", "Care of Magical Creatures", "Defense Against the Dark Arts"]
-    
+    y_Ravenclaw:np.ndarray = df["Hogwarts House"].apply(lambda x: 1 if x=="Ravenclaw" else 0).to_numpy()
+    y_Slytherin:np.ndarray = df["Hogwarts House"].apply(lambda x: 1 if x=="Slytherin" else 0).to_numpy()
+    y_Gryffindor:np.ndarray = df["Hogwarts House"].apply(lambda x: 1 if x=="Gryffindor" else 0).to_numpy()
+    y_Hufflepuff:np.ndarray = df["Hogwarts House"].apply(lambda x: 1 if x=="Hufflepuff" else 0).to_numpy()
+    features_to_drop:list[str] = ["Index", "Hogwarts House", "First Name", "Last Name", "Birthday", "Best Hand", "Arithmancy", "Care of Magical Creatures", "Defense Against the Dark Arts"] 
     df = df.drop(features_to_drop, axis = 1)
     
     
