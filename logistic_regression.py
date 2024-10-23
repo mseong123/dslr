@@ -34,8 +34,8 @@ class LogisticRegression():
         epsilon = 1e-10
         # shape is (size of sample,)
         # add epsilon to prevent log(0) which is undefined
-        return np.sum(-((y * np.log(y_predict + epsilon)) + \
-                        ((1 - y) * (np.log(1 - y_predict + epsilon))))) / len(y_predict)
+        return np.mean(-((y * np.log(y_predict + epsilon)) + \
+                        ((1 - y) * (np.log(1 - y_predict + epsilon)))))
 
     def sigmoid(self, z:np.ndarray)->np.ndarray:
         '''sigmoid value between 0 and 1'''
