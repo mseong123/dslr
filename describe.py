@@ -65,7 +65,7 @@ def main():
 		print("Incorrect number of parameters. Program terminating")
 		return(0)
 	try:
-		data = pd.read_csv(sys.argv[1])
+		data = pd.read_csv(f"./datasets/{sys.argv[1]}")
 	except Exception:
 		print("Cannot parse input file. Program terminating")
 		return(0)
