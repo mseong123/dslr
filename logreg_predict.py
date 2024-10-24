@@ -14,8 +14,6 @@ def handle_missing_data(df:pd.DataFrame) -> pd.DataFrame:
 
 def main():
     '''Program argument error checking and create a prediction file for each house'''
-    if len(sys.argv) != 3:
-        raise ValueError("Incorrect No of arguments")
     try:
         # load the saved weights previously
         loaded = np.load("./weight.npz")
