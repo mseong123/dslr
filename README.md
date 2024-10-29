@@ -1,6 +1,6 @@
 # dslr | 42KL
 
-This project aims to introduce another core feature of Machine Learning domain which is Logistic Regression (also known as log loss regression). Logistic Regression is a supervised learning and is used to 
+This project aims to introduce another core feature of Machine Learning domain which is Logistic Regression (also known as log loss regression). The project neccessitates the coding of the algorithms at the heart of the training process and is implemented using only Python, Numpy, Pandas and Matplotlib with no external ML libaries. Logistic Regression is a supervised learning and is used to 
 classify data into separate classes based on features. This project incorporates element of sigmoid function, binary cross entropy function as a loss function and used gradient descent as optimization
 algorithm. 
 
@@ -16,7 +16,7 @@ Included in BONUS part:
  - implementation of mini-batch gradient descent
 
 The model achieved accuracy of 99% in all scenarios using test data as per Scikit-learn.metrics accuracy score. The classes and functions are coded using reference to Scikit-learn LogisticRegression class. 
-The project is coded in Python together with Matplotlib.py, Numpy and Pandas. Final results **125/100**
+Final results **125/100**
 
 See [`Subject PDF`](https://github.com/mseong123/dslr/blob/main/en.subject.pdf) link.
 
