@@ -16,13 +16,13 @@ Included in BONUS part:
  - implementation of mini-batch gradient descent
 
 The model achieved accuracy of 99% in all scenarios using test data as per Scikit-learn.metrics accuracy score. The classes and functions are coded using reference to Scikit-learn LogisticRegression class. 
-The project is coded in Python together with Matplotlib.py, Numpy and Pandas. 
+The project is coded in Python together with Matplotlib.py, Numpy and Pandas. Final results **125/100**
 
 See [`Subject PDF`](https://github.com/mseong123/dslr/blob/main/en.subject.pdf) link.
 
 ## To install dependencies
 ```
-python install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## To run MANDATORY
@@ -46,12 +46,18 @@ python evaluate.py
 ```
 This will evaluate the labels generated in `houses.csv` against `dataset_truth.csv` using Scikit-learn accuracy_score method to evaluate precision of model (99%)
 
-## To run MANDATORY
+## To run BONUS
 
+### To train model using SGD
+```
+python logreg_train.py dataset_train.csv SGD
+```
+To train model using stochastic gradient descent. Hyperparamater (epoch) can be adjusted.
 
+### To train model using mini_batch
+```
+python logreg_train.py dataset_train.csv mini_batch
+```
+To train model using stochastic gradient descent. Hyperparamater (epoch and batch_size) can be adjusted.
+Both models above can be evaluated using mandatory functions as shown above. Precision rate is 99% for both optimization methods.
 
-
-In web interface, open notebook (ft_linear_regression.ipynb) and run the cells. The notebook will provide visualisation to the gradient descent algorithm in action in particular:
-* Animation of the individual cost functions derivatives w.r.t each coefficient alongside the steps taken to reach the optimum solution.
-* The number of steps taken for the associated learning rate.
-* a 3D wireframe showing update of the GD for both coefficient at the same time. 
