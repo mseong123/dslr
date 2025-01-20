@@ -1,5 +1,9 @@
 # dslr | 42KL
 
+
+![sigmoid curve](https://github.com/mseong123/dslr/blob/main/sigmoid.svg)
+
+
 This project aims to introduce another core feature of Machine Learning domain which is Logistic Regression (also known as log loss regression). The project neccessitates the coding of the algorithms at the heart of the training process and is implemented using only Python, Numpy, Pandas and Matplotlib with no external ML libaries. 
 
 Logistic Regression is a supervised learning and is used to classify data into separate classes based on features. This project incorporates element of sigmoid function, binary cross entropy function as a loss function and used gradient descent as optimization algorithm. 
