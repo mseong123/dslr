@@ -3,7 +3,7 @@
 
 ![sigmoid curve](https://github.com/mseong123/dslr/blob/main/sigmoid.svg)
 
-*Figure 1: Sigmoid curve function, used as objective function in logistic regression.*
+*Figure 1: Example sigmoid curve function, used as objective function in logistic regression.*
 
 This project aims to introduce another core feature of Machine Learning domain which is Logistic Regression (also known as log loss regression). The project neccessitates the coding of the algorithms at the heart of the training process and is implemented using only Python, Numpy, Pandas and Matplotlib with no external ML libaries. 
 
