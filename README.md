@@ -43,12 +43,13 @@ Install dependencies for project
 ```
 python describe.py dataset_train.py
 ```
+
 To get statistical metrics of data
 
 ```
 python histogram.py
-
 ```
+
 To check for homogenous distribution between features (features with homogenous distribution can be excluded without affecting model, as their information is captured in other features with same distribution).
 
 ```
@@ -58,36 +59,46 @@ python pair_plot.py
 To check for features that have similar relationship to other paired feature. Can also be excluded as their information is captured in the model if only one feature of the pair is included. 
 
 ### To train model
+
 ```
 python logreg_train.py dataset_train.csv
 ```
-This will train the regression model based on the `dataset_train.csv` and will show loss function value at every 100 iterations. Adjust hyperparameters learning rate and iteration in logreg_train.py to tune model's
+
+Using analysis above, we can exclude some features. This will train the regression model based on the `dataset_train.csv` and will show loss function value at every 100 iterations. Adjust hyperparameters learning rate and iteration in logreg_train.py to tune model's
 performance. The above will output file `weight.npz` which will be used by model to predict classification output based on test dataset.
 
 ### To predict model
+
 ```
 python logreg_predict.py dataset_test.csv weight.npz
 ```
+
 This will output a file `houses.csv` which shows labelling of the classes in the test dataset. 
 
 ### To evaluate model
+
 ```
 python evaluate.py
 ```
+
 This will evaluate the labels generated in `houses.csv` against `dataset_truth.csv` using Scikit-learn accuracy_score method to evaluate precision of model (99%)
 
 ## To run BONUS
 
 ### To train model using SGD
+
 ```
 python logreg_train.py dataset_train.csv SGD
 ```
+
 To train model using stochastic gradient descent. Hyperparamater (epoch) can be adjusted.
 
 ### To train model using mini_batch
+
 ```
 python logreg_train.py dataset_train.csv mini_batch
 ```
+
 To train model using stochastic gradient descent. Hyperparamater (epoch and batch_size) can be adjusted.
 Both models above can be evaluated using mandatory functions as shown above. Precision rate is 99% for both optimization methods.
 
