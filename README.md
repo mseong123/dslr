@@ -32,6 +32,31 @@ pip install -r requirements.txt
 
 ## To run MANDATORY
 
+```
+pip install -r requirements.txt
+```
+
+Install dependencies for project
+
+### Data processing and visualization
+
+```
+python describe.py dataset_train.py
+```
+To get statistical metrics of data
+
+```
+python histogram.py
+
+```
+To check for homogenous distribution between features (features with homogenous distribution can be excluded without affecting model, as their information is captured in other features with same distribution).
+
+```
+python pair_plot.py
+```
+
+To check for features that have similar relationship to other paired feature. Can also be excluded as their information is captured in the model if only one feature of the pair is included. 
+
 ### To train model
 ```
 python logreg_train.py dataset_train.csv
